@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой SA-MP Сервер</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #1f2833;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: #c5c6c7;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #66fcf1;
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, #45f3ff, #ff2770);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.4);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(69, 243, 255, 0.7);
+        }
+
+        .hero {
+            height: 100vh;
+            background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #66fcf1;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .server-status {
+            background-color: #1f2833;
+            padding: 20px 40px;
+            border-radius: 10px;
+            border: 1px solid #66fcf1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .pulse {
+            width: 15px;
+            height: 15px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            animation: pulsing 1.5s infinite;
+        }
+
+        @keyframes pulsing {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        .ip-address {
+            font-family: monospace;
+            color: #66fcf1;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #1f2833;
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-bottom-color: #66fcf1;
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        footer {
+            background-color: #0b0c10;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #1f2833;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">MyServer<span>RP</span></div>
+            <nav class="nav-links">
+                <a href="#">Главная</a>
+                <a href="#features">Преимущества</a>
+                <!-- Прямая ссылка на ваш лаунчер в GitHub вставлена ниже -->
+                <a href="https://githubusercontent.com" class="btn-download">Скачать лаунчер</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Добро пожаловать на <span>MyServer RP</span></h1>
+        <p>Уникальный игровой мод, отзывчивая администрация и атмосфера настоящего RolePlay. Начни свою историю прямо сейчас!</p>
+        
+        <div class="server-status">
+            <div class="pulse"></div>
+            <div>Статус: <b>Онлайн</b></div>
+            <div>|</div>
+            <div>Игроков: <b>128 / 500</b></div>
+            <div>|</div>
+            <div class="ip-address">server.my-samp.ru:7777</div>
+        </div>
+
+        <!-- Прямая ссылка на ваш лаунчер в GitHub вставлена ниже -->
+        <a href="https://githubusercontent.com" class="btn-download" style="font-size: 20px; padding: 15px 40px;">СКАЧАТЬ ЛАУНЧЕР</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="card">
+            <h3>Уникальный Мод</h3>
+            <p>Собственные системы фракций, работ и продвинутая экономика, написанная с нуля.</p>
+        </div>
+        <div class="card">
+            <h3>Стабильный Хостинг</h3>
+            <p>Низкий пинг, мощная защита от DDoS-атак и работа в режиме 24/7 без вылетов.</p>
+        </div>
+        <div class="card">
+            <h3>Крутой Лаунчер</h3>
+            <p>Свой лаунчер с автоматическим обновлением файлов, модами и красивой графикой.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MyServer RP. Все права защищены. Разработано для SA-MP.</p>
+    </footer>
+
+</body>
+</html>
